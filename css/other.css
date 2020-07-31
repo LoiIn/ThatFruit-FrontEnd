@@ -1,0 +1,10 @@
+*{margin: 0;padding: 0;}
+
+#cart_area2{display: none;}
+
+.change_header{position: fixed;top: 0;left: 0;animation: change_header 0.5s forwards;width: 100%;z-index: 999;}
+
+@-webkit-keyframes change_header{
+    from{top: -48px;}
+    to{top: 0px;}
+}
