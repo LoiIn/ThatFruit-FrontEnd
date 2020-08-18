@@ -467,9 +467,9 @@ div#fruit_show {width: 100%;padding-top: 1em;padding-bottom: 3em;}
 /*TODO: 2. Trai cay tuoi */
 
 /* view 2 */
-#fruits_view_2{
+/* #fruits_view_1{
     display: none;
-}
+} */
 @media(max-width:800px){
     .img_box_2{width: 49% !important;}
     .shop_box{width: 49% !important;}
@@ -519,7 +519,7 @@ ul.see_wish li i {color: #D57E67;font-size: 20px;}
 
 #select_row_2 ul li a{color: #777;text-decoration: none;transition: 0.4s;}
 
-#select_row_2 ul li a.active{color: #D57E67;border-bottom: 2px solid #D57E67;}
+#select_row_2 ul li.active a{color: #D57E67;border-bottom: 2px solid #D57E67;}
 
 #select_row_2 ul li:hover a{color: #D57E67;border-bottom: 2px solid #D57E67;}
 
@@ -533,13 +533,19 @@ ul.see_wish li i {color: #D57E67;font-size: 20px;}
 
 li#box_view {transform: scale(1.3);}
 
-li#gird_view {color: #D57E67;transform: scaleY(1.3);}
+li#gird_view {transform: scaleY(1.3);}
 
 b#par_name {text-transform: uppercase;font-size: 200%;color: #2a0b0d;letter-spacing: 0.1em;}
 
 div#select_area {margin: 2em 0;}
 
-#filter ul {justify-content: space-between;}
+/* #filter ul {position: absolute;right: 0;} */
+
+/* #filter{position: relative;} */
+
+#filter ul{justify-content: flex-end;}
+
+#filter ul li{margin-left: 1em;}
 
 .view_type {width: 5%; cursor: pointer;}
 
@@ -800,7 +806,11 @@ div#bottom_bar #ul_bt_bar>li:hover i.fa.fa-caret-up{display: block;}
 
 .menu_two ul {list-style: none;display: initial;}
 
-.menu_two ul li {border-bottom: 1px solid #80808063;text-transform: none;font-weight: 300;color: #777}
+.menu_two ul li:hover a{color:#d57e67 !important;font-weight:bold;}
+
+.menu_two ul li a{text-decoration: none;color: #777 !important;transition: 0.4s;}
+
+.menu_two ul li {border-bottom: 1px solid #80808063;text-transform: none;font-weight: 300;color: #777;cursor: pointer;transition: 0.4s;}
 
 .menu_two ul li:last-child {border: none;}
 
