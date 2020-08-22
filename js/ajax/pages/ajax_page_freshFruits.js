@@ -11,10 +11,7 @@ $(function(){
     // setSize();
     updateSize();
 
-    // hiển thị toàn bộ sản phẩm
-    getAllProducts().then(function(rs){
-        showLists(rs);
-    }).catch(err=>console.log(err));
+    showWithLocationHref();
 
     selectByTitle();
     selectByOrigin();
@@ -22,13 +19,41 @@ $(function(){
     // showPrevOrNext();
 })
 
-// Tìm kiếm theo tên sản phẩm
-function showOneFruits(){
-    state.certi = "name";
-    $(".one_f").click(function (e) { 
-        state.val = $(this).find(".name_f").html();
-        
-    });
+// Hiển thị ban đầu khi mới vào trang
+// 1. Nếu đường link không có tiêu chí gì thêm thì hiển thị tất cả sản phẩm.
+// 2. Nếu đường link có thêm các tiêu chí thì hiển thị các sản phẩm ở đường link đó.
+function showWithLocationHref(){
+    if(location.href == url_page){
+        $("title").html("Trái cây tươi - Thật Fruit");
+        getAllProducts().then(function(rs){
+            showLists(rs);
+        }).catch(err=>console.log(err));
+    }else{
+        let other =  location.href.slice(url_page.length);
+        let arrStr = other.split("=");
+        $("#select_row_2 ul li").removeClass("active");
+        $(`#select_row_2 ul li[data-title=${arrStr[1]}]`).addClass("active");
+        filterByTitle(other).then(function(rs){
+            showLists(rs);
+        })
+        $("title").html(`${arrStr[1]} - Thật Fruit`);
+    }
+}
+
+function filterByTitle(titleName){
+    return ajaxGet(titleName);
+}
+
+
+
+// Hiển thị kết quả
+function showLists(rs){
+    if(rs.length == 0) showNull();
+    else{
+        showType1(rs);
+        showType2(rs);
+    }
+    clickOneFruits();
 }
 
 
@@ -52,6 +77,8 @@ function selectByTitle(){
                 showLists(rs);
             }).catch(err=>console.log(err));
         }
+        // location.href = url_page + `?${state.certi}=${state.val}`;
+        showNameAndLink(`Trái cây tươi / ` + state.val);
     });
     $("#bottom_bar .menu_two ul li").click(function(e){
         state.certi = "title";
@@ -64,6 +91,9 @@ function selectByTitle(){
         filterBy(state.certi, state.val,state.isDesc).then(rs=>{
             showLists(rs);
         }).catch(err=>console.log(err));
+
+        // location.href = url_page + `?${state.certi}=${state.val}`;
+        showNameAndLink(`Trái cây tươi / ` + state.val);
     })
 }
 

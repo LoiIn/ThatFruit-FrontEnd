@@ -1,7 +1,7 @@
-var URL_API = "";
-var nameF = "";
+var URL_API = "https://5f23e43c3b9d350016203b87.mockapi.io/api/v1/";
 
-
+var location_href = location.href;
+console.log(location_href);
 
 // get data
 async function ajaxGet(url) {
@@ -91,7 +91,6 @@ function viewField(data) {
 //view error
 function viewError(selector, message) {
     
-
 }
 
 // kiểm tra xem một chuỗi có thuộc một chuỗi khác hay không?
@@ -106,20 +105,23 @@ function hiddenError(selector) {
     
 }
 
-function getNameF(){
-    $(".one_f").click(function (e) { 
-        e.preventDefault();
-        nameF = $(this).find(".name_f").html();
-    })
+// hiển thị đường link sản phẩm
+function showNameAndLink(name){
+    $(".link_details").html(
+        ` <div class="row flex_row text-left">
+            <div class="col">
+                <span>Trang chủ / ${name}</span>
+            </div>
+          </div>`
+    );
 }
 
-// Hiển thị kết quả
-function showLists(rs){
-    if(rs.length == 0) showNull();
-    else{
-        showType1(rs);
-        showType2(rs);
-    }
+// ẩn vào một sản phẩm nó sẽ chuyển sang trang fruit.html
+function clickOneFruits(){
+    $(".one_f").click(function (e) { 
+        let w = $(this).find(".name_f").html();
+        $(this).find(".do_du_lieu").attr("href",`fruit.html?name=${w}`);
+    });
 }
 
 function showType1(rs){
@@ -208,7 +210,5 @@ function showOneItemType2(item){
     <a href="fruit.html">`;
 }
 
-// thay đổi nội dung của trang
-// 1. Chuyển sang nội dung của một quả
 
 

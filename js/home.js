@@ -4,14 +4,7 @@ $(document).ready(function () {
 
 
     //TODO: 1) slide anh 
-    $('.one_slider').click(function (e) {
-        $(".white_cover").css('opacity','1');
-        e.preventDefault();
-        var data_img = $(this).attr('data-img');
-        var link = `imgs/home/f${data_img}.jpg`;
-        $(this).find(".white_cover").css('opacity','0');
-        $('.slider-for img').attr('src',link);
-    });
+    
     
     // $("#zoom_img").ezPlus({
     //     zoomType: 'lens',

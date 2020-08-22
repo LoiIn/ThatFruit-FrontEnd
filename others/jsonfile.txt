@@ -1,0 +1,146 @@
+[
+  {
+    "id": "1",
+    "name": "Táo Hà Tây",
+    "priece": 100000,
+    "from": "Hà Tây",
+    "status": true,
+    "img": [],
+    "title": "Táo"
+  },
+  {
+    "id": "2",
+    "name": "Cam Biên Hòa",
+    "priece": 60000,
+    "from": "Đồng Nai",
+    "status": true,
+    "img": [],
+    "title": "Cam"
+  },
+  {
+    "id": "3",
+    "name": "Lê Lục Ngạn",
+    "priece": 70000,
+    "from": "Bắc Giang",
+    "status": true,
+    "img": [],
+    "title": "Lê"
+  },
+  {
+    "id": "4",
+    "name": "Nho Ninh Thuận",
+    "priece": 80000,
+    "from": "Ninh Thuận",
+    "status": true,
+    "img": [],
+    "title": "Nho"
+  },
+  {
+    "id": "5",
+    "name": "Táo Lũng Cú",
+    "priece": 110000,
+    "from": "Hà Giang",
+    "status": true,
+    "img": [],
+    "title": "Táo"
+  },
+  {
+    "id": "6",
+    "name": "Cam Hội An",
+    "priece": 90000,
+    "from": "Quảng Nam",
+    "status": true,
+    "img": [],
+    "title": "Cam"
+  },
+  {
+    "id": "7",
+    "name": "Lê Phan Thiết",
+    "priece": 95000,
+    "from": "Nha Trang",
+    "status": true,
+    "img": [],
+    "title": "Lê"
+  },
+  {
+    "id": "8",
+    "name": "Nho An Giang",
+    "priece": 50000,
+    "from": "An Giang",
+    "status": true,
+    "img": [],
+    "title": "Nho"
+  },
+  {
+    "id": "9",
+    "name": "Táo Quốc Oai",
+    "priece": 200000,
+    "from": "Hà Tây",
+    "status": true,
+    "img": [],
+    "title": "Táo"
+  },
+  {
+    "id": "10",
+    "name": "Cam Sóc Sơn",
+    "priece": 90000,
+    "from": "Đồng Nai",
+    "status": true,
+    "img": [],
+    "title": "Cam"
+  },
+  {
+    "id": "11",
+    "name": "Lê Kim Bôi",
+    "priece": 70000,
+    "from": "Bắc Giang",
+    "status": true,
+    "img": [],
+    "title": "Lê"
+  },
+  {
+    "id": "12",
+    "name": "Nho Hải Hậu",
+    "priece": 80000,
+    "from": "Nam Định",
+    "status": true,
+    "img": [],
+    "title": "Nho"
+  },
+  {
+    "id": "13",
+    "name": "Táo Thừa Thiên",
+    "priece": 110000,
+    "from": "Hà Tây",
+    "status": true,
+    "img": [],
+    "title": "Táo"
+  },
+  {
+    "id": "14",
+    "name": "Cam Quảng Ngãi",
+    "priece": 45000,
+    "from": "Đồng Nai",
+    "status": true,
+    "img": [],
+    "title": "Cam"
+  },
+  {
+    "id": "15",
+    "name": "Lê Hậu Giang",
+    "priece": 70000,
+    "from": "Hậu Giang",
+    "status": true,
+    "img": [],
+    "title": "Lê"
+  },
+  {
+    "id": "16",
+    "name": "Nho Phú Quốc",
+    "priece": 130000,
+    "from": "Kiên Giang",
+    "status": true,
+    "img": [],
+    "title": "Nho"
+  }
+]
