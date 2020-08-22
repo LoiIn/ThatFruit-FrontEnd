@@ -23,7 +23,7 @@ $(function(){
 // 1. Nếu đường link không có tiêu chí gì thêm thì hiển thị tất cả sản phẩm.
 // 2. Nếu đường link có thêm các tiêu chí thì hiển thị các sản phẩm ở đường link đó.
 function showWithLocationHref(){
-    if(location.href == url_page){
+    if(location.href.indexOf("=") == -1){
         $("title").html("Trái cây tươi - Thật Fruit");
         getAllProducts().then(function(rs){
             showLists(rs);

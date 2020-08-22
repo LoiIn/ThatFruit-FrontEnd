@@ -1,8 +1,5 @@
 var URL_API = "https://5f23e43c3b9d350016203b87.mockapi.io/api/v1/";
 
-var location_href = location.href;
-console.log(location_href);
-
 // get data
 async function ajaxGet(url) {
     let rs = null;
