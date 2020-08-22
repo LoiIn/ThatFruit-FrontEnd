@@ -28,23 +28,18 @@ function showWithLocationHref(){
         getAllProducts().then(function(rs){
             showLists(rs);
         }).catch(err=>console.log(err));
-    }else{
-        let other =  location.href.slice(url_page.length);
-        let arrStr = other.split("=");
-        $("#select_row_2 ul li").removeClass("active");
-        $(`#select_row_2 ul li[data-title=${arrStr[1]}]`).addClass("active");
-        filterByTitle(other).then(function(rs){
+    }else{  
+        let arrStr = location.href.split("=");
+        state.certi = "title";
+        state.val = arrStr[1];
+        filterBy(state.certi, state.val ,state.isDesc).then(function(rs){
             showLists(rs);
         })
         $("title").html(`${arrStr[1]} - Thật Fruit`);
+        $("#select_row_2 ul li").removeClass("active");
+        $(`#select_row_2 ul li[data-title=${arrStr[1]}]`).addClass("active");
     }
 }
-
-function filterByTitle(titleName){
-    return ajaxGet(titleName);
-}
-
-
 
 // Hiển thị kết quả
 function showLists(rs){

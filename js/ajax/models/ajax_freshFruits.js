@@ -1,4 +1,3 @@
-url_page = "file:///D:/Git-folder/ThatFruit-FrontEnd/freshFruit.html";
 
 // lấy tất cả các sản phẩm trong cửa hàng
 function getAllProducts(){
