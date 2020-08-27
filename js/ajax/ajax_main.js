@@ -1,4 +1,5 @@
-var URL_API = "https://5f23e43c3b9d350016203b87.mockapi.io/api/v1/";
+var URL_API = "https://5f23e43c3b9d350016203b87.mockapi.io/api/v1/",
+    PAGE_ID;
 
 // get data
 async function ajaxGet(url) {
@@ -48,11 +49,10 @@ async function ajaxPut(url, data) {
 }
 
 // delete data
-async function ajaxDelete(url, data) {
+async function ajaxDelete(url) {
     let rs = null;
     await $.ajax({
-        type: 'PUT',
-        data: JSON.stringify(data),
+        type: 'DELETE',
         url:  URL_API + url,
         timeout: 30000,
         contentType: "application/json",
@@ -88,6 +88,20 @@ function viewField(data) {
 //view error
 function viewError(selector, message) {
     
+}
+
+// view success
+function viewSuccess(message){
+    alert(message);
+}
+
+// In số có dấu chấm
+function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1.$2");
+    return x;
 }
 
 // kiểm tra xem một chuỗi có thuộc một chuỗi khác hay không?
@@ -154,16 +168,16 @@ function showOneItemType1(item){
                             <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                         </ul>
                         <b class="name_f">${item.name}</b>
-                        <p class="priece">${item.priece}</p>
+                        <p class="priece">${numberWithCommas(item.priece)} VNĐ</p>
                         <ul class="weight">
-                            <li><a name="" class="kg_" class="btn btn-primary" href="#" role="button">1kg</a></li>
-                            <li><a name="" class="g_" class="btn btn-primary" href="#" role="button">500g</a></li>
+                            <li><a name="" class="kg_ btn btn-primary prWeight" href="#" role="button">1kg</a></li>
+                            <li><a name="" class="g_ btn btn-primary prWeight active" href="#" role="button">500g</a></li>
                         </ul>
                         <ul class="add_ hidden_media">
-                            <li><a href="" class="add_cart"><img src="https://thatfruit.vn/wp-content/themes/wda-child/assets/img/cart-1.png" alt=""> Thêm vào giỏ</a></li>
+                            <li><a class="add_cart" data-cartItem ="${item.id}"><img src="https://thatfruit.vn/wp-content/themes/wda-child/assets/img/cart-1.png" alt=""> Thêm vào giỏ</a></li>
                             <li><a href="" class="add_wish"><i class="fa fa-heart-o" aria-hidden="true"></i></a> </li>
                         </ul>
-                        <a href="" class="show_media add_show"> Thêm vào giỏ</a>                               
+                        <a  class="show_media add_show"> Thêm vào giỏ</a>                               
                     </div>
                 </a>
             </div>`;
@@ -192,10 +206,10 @@ function showOneItemType2(item){
                 </div>
                 <div class="shop_box text-right">
                     <b class="name_f show_media">${item.name}</b>
-                    <p class="priece">${item.priece}</p>
+                    <p class="priece">${numberWithCommas(item.priece)} VNĐ</p>
                     <ul class="weight">
-                        <li><a name="" class="kg_" class="btn btn-primary" href="#" role="button">1kg</a></li>
-                        <li><a name="" class="g_" class="btn btn-primary" href="#" role="button">500g</a></li>
+                        <li><a name="" class="kg_ btn btn-primary prWeight" href="#" role="button">1kg</a></li>
+                        <li><a name="" class="g_ btn btn-primary prWeight" href="#" role="button">500g</a></li>
                     </ul>
                     <a href="" class="add_cart"><img src="https://thatfruit.vn/wp-content/themes/wda-child/assets/img/cart-1.png" alt=""> Thêm vào giỏ</a>
                     <ul class="see_wish">

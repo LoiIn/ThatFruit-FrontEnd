@@ -6,6 +6,8 @@ var state = {
     size: 4  //số lượng sản phẩm tối đa mà trang có thể hiển thị
 };
 
+PAGE_ID = 0;
+
 $(function(){
     
     // setSize();
@@ -49,6 +51,7 @@ function showLists(rs){
         showType2(rs);
     }
     clickOneFruits();
+    addCartWhenClick_area();
 }
 
 

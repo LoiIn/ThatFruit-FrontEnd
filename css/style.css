@@ -442,9 +442,11 @@ div#criterias {width: 100%;}
 /* product infor */
 #product_infor ul.add_ {margin: 2.5em 0 !important;}
 
-li#count_of_pr {width: 30%;margin-left: 0;background-color: #d6d2d2b5;color: black;padding: 0.25em;margin-top: 0 !important;border-radius: 20px;}
+li#count_of_pr {width: 30%;margin-top: 0 !important;overflow: hidden;}
 
-li#count_of_pr ul {justify-content: space-between;}
+#count_of_pr input:focus{outline: none;}
+
+#count_of_pr input{border:none; background-color: #d6d6d65e; width :100%; height: 45px;;color: black; padding: 0.25em;border-radius: 20px;text-align: center;}
 
 p#less_review {margin: 2em 0;}
 
@@ -570,13 +572,13 @@ div#fresh_fruit {width: 100%;padding-top: 1em;padding-bottom: 2em;}
 
 .add_show:hover{color: white;text-decoration: none;}
 
-.add_show{width: 90%;background-color: #D57E67;color: white;text-decoration: none;transition: 0.4s; text-transform: uppercase;margin: 0 auto;padding: 10px 0;border-radius: 20px;margin-top: 1em;font-weight: bold;cursor: pointer;}
+.add_show{width: 90%;background-color: #D57E67;color: white;text-decoration: none;transition: 0.4s; text-transform: uppercase;margin: 0 auto;padding: 10px 0;border-radius: 20px;margin-top: 1em;font-weight: bold;cursor: pointer;z-index:998}
 
 a.add_wish {border: 1px solid #D57E67;padding: 10px 12px;border-radius: 50%;}
 
 a.add_wish i {color: #D57E67;}
 
-a.add_cart {background-color: #d57e67;padding: 0.5em 1em;color: white;font-size: 20px;border-radius: 20px;text-decoration: none;}
+a.add_cart {background-color: #d57e67;padding: 0.5em 1em;color: white !important;font-size: 20px;border-radius: 20px;text-decoration: none;cursor: pointer;}
 
 a.add_cart img {margin-top: -5px;}
 
@@ -586,11 +588,12 @@ ul.add_ {margin-top: 15px;width: 100%;}
 
 ul.add_ li:last-child {margin-top: 7px;}
 
-a.g_ {background-color: #d57e67;border: none;color: black;padding: 2px 20px;}
+a.prWeight {background-color: white;border: none;color: black;padding: 2px 20px; width: 70px;}
+
+a.prWeight.active{background-color:#d57e67 !important;}
 
 ul.weight li {margin: 5px;}
 
-a.kg_ {background-color: white;border: none;color: black;padding: 2px 20px;width: 60px;}
 
 p.priece {color: red;font-size: 20px;font-weight: 900;margin-bottom: 0;}
 

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Táo Hà Tây",
+    "quantity": 2,
+    "priece": 100000,
+    "img": "",
+    "weight": "500g",
+    "title": "Táo",
+    "fruitID" : 1
+  },
+  {
+    "id": "2",
+    "name": "Táo Quốc Oai",
+    "quantity": 3,
+    "priece": 200000,
+    "img": "",
+    "weight": "500g",
+    "title": "Táo",
+    "fruitID" : 9
+  }
+]

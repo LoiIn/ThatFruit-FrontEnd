@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Thanh toán - Thật Fruit</title>
+    <title>Giỏ hàng - Thật Fruit</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,19 +22,10 @@
             <div class="bar_bottom"></div>
             <i class="fa fa-times" aria-hidden="true"></i>
             <div id="list_carts">
-                <div class="one_lc">
-                    <div class="img_box_3">
-                        <img src="imgs/cart/1.jpg" alt="">
-                    </div>
-                    <div class="name_box">
-                        <p>Nho Shine Muscat Hàn Quốc - <span>650gr</span></p>
-                        <span class = "count+price"><b>1</b> x 682.500 VNĐ</span>
-                    </div>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </div>
+                
             </div>
             <div id="prepare_total" class="text-center">
-                <span>Tạm tính: <strong>682.500 VND</strong></span>
+                
             </div>
             <div id="view_cart" class="text-center">
                 <a name="" id="" class="btn btn-primary ca2_btn" href="#" role="button">Xem giỏ hàng</a>
@@ -44,7 +35,7 @@
             </div>
         </div>
     </div>
-      
+
     <div id="call_now">
         <div id="call_now_left">
             <i class="fa fa-phone" aria-hidden="true"></i>
@@ -66,7 +57,7 @@
     <div id="return_header">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
     </div>
-      
+
     <div id="wrapper">
         <div id="header">
             <div id="wrap_header">
@@ -92,14 +83,14 @@
                     <div class="flex_row row hidden_media">
                         <div id="main_bar_left" class="col-xs-6 col-md-6 text-left">
                             <div id="search_area">
-                                <input type="text" class="form-control" name="" id="header_find"  placeholder="Tìm kiếm ...">
+                                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Tìm kiếm ...">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div id="main_bar_right" class="col-xs-6 col-md-6 text-right">
                             <ul class="nav_ul">
                                 <li><a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> WISHLIST</a></li>
-                                <li id="cart_icon"><a href=""><img src="http://thatfruit.vn/wp-content/uploads/2020/02/cart.png" alt="" style="margin-right: 5px"> GIỎ HÀNG</a></li>
+                                <li class="cart_icon"><a href=""><img src="http://thatfruit.vn/wp-content/uploads/2020/02/cart.png" alt="" style="margin-right: 5px"> GIỎ HÀNG</a></li>
                             </ul>
                         </div>
                         <div id="logo_area">
@@ -178,124 +169,73 @@
                             
                         </div>
                     </div>
-                </div><!--end bottom_bar-->        
+                </div><!--end bottom_bar--> 
             </div><!--end Wrap header-->
         </div><!--end header-->
 
-        <div id="pay_cart_page">
+        <div id="cart">
             <div class="link_details">
-                <div class="row flex_row text-left">
-                    <div class="col">
-                         <span>Trang chủ / Thanh toán</span>
+                <div class="row flex_row">
+                    <div class="col-md-12 col-xs-12">
+                         <span>Trang chủ / Giỏ hàng</span>
                     </div>
                 </div>
             </div><!--end link_details-->
 
-            <div id="pay_cart_detail">
-                <div class="col-md-12 col-xs-12 text-center" >
-                    <h3 style="text-transform: uppercase;color: #333333;margin-bottom: 2em;">chăm sóc khách hàng</h3>                    
-                </div>
-
-                <div class="row flex_row text-left">
-                    <div class="col-xs-12 col-md-12 pay_cart_col">
-                         <span>Bạn đã có tài khoản? <strong>Ấn vào đây để đăng nhập</strong></span>
-                    </div>
-                    <div class="col-xs-12 col-md-12 pay_cart_col">
-                         <span>Bạn có mã ưu đãi? <strong>Ấn vào đây để nhập mã</strong></span>
-                    </div>
-                </div>
-
+            <div id="cart_area">
                 <div class="row flex_row">
-                    <div class="col-md-6 col-xs-12 pcd_col" id="pcd_left">
-                        <h5 class="cp_title">thông tin thanh toán</h5>
-                        <label for="">Địa chỉ email *</label>
-                        <input type="text" class="form-control" name="" id="mailAdd_find"  placeholder="">
-                        <label for="">Họ tên *</label>
-                        <input type="text" class="form-control" name="" id="name_find"  placeholder="">
-                        <label for="">Địa chỉ *</label>
-                        <input type="text" class="form-control" name="" id="add_find"  placeholder="">
-                        <label for="">Số điện thoại *</label>
-                        <input type="text" class="form-control" name="" id="phone_find"  placeholder="">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
-                              Tạo tài khoản mới
-                            </label>
-                        </div>
-                        <h5 class="cp_title">Thông tin bổ sung</h5>
-                        <input type="text" class="form-control" name="" id="other_infor_find"  placeholder="">
-                    </div>  <!--end pcd_left-->
-
-                    <div class="col-xs-12 col-md-5 offset-md-1 pcd_col" id="pcd_right">
-                        <h5 class="cp_title">đơn hàng của bạn</h5>
-                        <table  class="me_table">
-                            <thead>
-                                <tr>
-                                    <th width = "70%">sản phẩm</th>
-                                    <th width = "30%" class="text-right" style="padding-right: 1em !important;">tạm tính</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><span>Việt quất Organic Usa 125gr x</span><strong>1</strong></td>
-                                    <td>85.000VNĐ</td>
-                                </tr>
-                                <tr>
-                                    <td>Tạm tính</td>
-                                    <td>85.000VNĐ</td>
-                                </tr>
-                                <tr class="order_total product_money">
-                                    <td>Tổng</td>
-                                    <td class="text-right"><strong><span>200.000 VNĐ</span></strong></td>                                </tr>
-                            </tbody>
-                        </table> <!--end table-->
-
-                        <div id="pay_methods">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="" id="" value = "0">
-                                    Chuyển khoản ngân hàng
-                                </label>
-                                <p data-val="0">Thực hiện thanh toán vào ngay tài khoản ngân hàng của chúng tôi.
-                                    Vui lòng sử dụng Mã đơn hàng của bạn trong phần Nội dung thanh toán. 
-                                    Đơn hàng sẽ được giao sau khi tiền đã chuyển.
-                                </p>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="" id="" value ="1" >
-                                    Kiểm tra thanh toán
-                                </label>
-                                <p data-val="1">
-                                    Vui lòng gửi chi phiếu của bạn đến Tên cửa hàng,
-                                    Đường của cửa hàng, Thị trấn của cửa hàng, 
-                                    Bang / Hạt của cửa hàng, Mã bưu điện cửa hàng.
-                                </p>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="" id="" value = "2">
-                                    Trả tiền mặt khi nhận hàng
-                                </label>
-                                <p data-val="2">
-                                    Trả tiền mặt khi giao hàng
-                                </p>
-                            </div>
-                        </div> <!--end pay_methods-->
-                    
-                        <div class="text-center">
-                            <a name="" id="view_pos" class="btn btn-primary btn_type_2" href="#" role="button">Đặt hàng</a>
-                        </div>
-
-                        <div class="text-left">
-                            <p> Thông tin cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng, tăng trải nghiệm sử dụng website, 
-                                và cho các mục đích cụ thể khác đã được mô tả trong <b>chính sách riêng tư</b>.</p>
-                        </div>
-
+                    <div class="col-xs-12 col-md-12 text-center">
+                        <h4 style="text-transform: uppercase; color: #2a0b0d;font-weight: bolder;">GIỎ HÀNG</h4>
                     </div>
                 </div>
 
+                <!-- table area -->
+                <div id="table_cart">
+                    <div class="row flex_row">
+                        <div class="col-xs-12 col-md-12">
+                            <table  class="me_table" >
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" width = "45%">Sản phẩm</th>
+                                        <th width = "17%">Giá</th>
+                                        <th width = "17%">Số lượng</th>
+                                        <th width = "17%">tạm tính</th>
+                                        <th width = "4%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ajax -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row flex_row">
+                        <div class="col-xs-12 col-md-5 me_right">
+                            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Mã ưu đãi"> 
+                            <a type ="submit" name="" id="" class="btn btn-primary" href="#" role="button">áp dụng</a>
+                        </div>
+
+                        <div class="col-xs-12 col-md-3 offset-md-4 offset-xs-0 text-right">
+                            <a name="" id="pay_order" class="btn btn-primary" href="#" role="button">tiến hành thanh toán</a>
+                        </div>
+                    </div>
+                </div><!--end table cart-->
+
+                <div id="other_product">
+                    <div class="row flex_row text-left">
+                        <h4 style="color: #2a0b0d;">SẢN PHẨM TƯƠNG TỰ</h4>
+                        <hr>
+                    </div>
+
+                    <div class="fruits">
+                        <div class="row flex_row row_fruit">
+                            <!-- ajax -->
+                        </div>
+                    </div> <!--end_fruist-->
+                </div>
             </div>
+          
         </div>
 
        
@@ -328,7 +268,7 @@
                         <span>Đăng kí để nhận ưu đãi mới nhất từ chúng tôi</span>
                     </div>
                     <div class="col-xs-12 col-sm-6 text-center me_right" id="ct_top_right">
-                        <input type="text" class="form-control" name="" id="contact_find"  placeholder="Email của bạn"> 
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Email của bạn"> 
                         <a type ="submit" name="" id="" class="btn btn-primary" href="login.html" role="button">Đăng kí</a>
                     </div>
                     <div class="col-xs-12 col-sm-12" id="contact_hr">
@@ -415,5 +355,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script src="js/home.js"></script>
     <script src="js/cart.js"></script>
+
+    <!-- ajax file -->
+    <script src="js/ajax/ajax_main.js"></script>
+    <script src="js/ajax/ajax_header.js"></script>
+    <script src="js/ajax/ajax_footer.js"></script>
+    <script src="js/ajax/ajax_cart_area.js"></script>
+    <script src="js/ajax/models/ajax_cart.js"></script>
+    <script src="js/ajax/pages/ajax_page_cart.js"></script>
+
   </body>
 </html>

@@ -6,9 +6,16 @@ var state = {
     img : []
 }
 
+PAGE_ID = 2;
+
 var link = "imgs/fruits"
 
 $(function(){
+    showAllInfor();
+    
+})
+
+function showAllInfor(){
     getFruit().then(function(rs){
         // hiển thị đường link sản phẩm
         showNameAndLink(rs[0].name);
@@ -19,9 +26,11 @@ $(function(){
         // hiển thị phần ảnh
         $("#slide_area").html(setImgHtml(rs[0]));
         slideAnh(rs[0]);
-
+        addCartWhenClick_area();
+        plusOrMinusFruitPage();
     }).catch(err=>console.log(err));
-})
+    
+}
 
 function setHtml(item){
     return `<b class="name_f">${item.name}</b>
@@ -44,18 +53,14 @@ function setHtml(item){
             </p>
             <ul class="weight">
                 <li style="margin-left:0; color: black; font-weight: 800;">TRỌNG LƯỢNG</li>
-                <li><a name="" class="kg_" class="btn btn-primary" href="#" role="button">1kg</a></li>
-                <li><a name="" class="g_" class="btn btn-primary" href="#" role="button">500g</a></li>
+                <li><a name="" class="kg_ btn btn-primary prWeight" href="#" role="button">1kg</a></li>
+                <li><a name="" class="g_ btn btn-primary prWeight active" href="#" role="button">500g</a></li>
             </ul>
             <ul class="add_ ">
                 <li id="count_of_pr">
-                    <ul>
-                        <li>-</li>
-                        <li>1</li>
-                        <li>+</li>
-                    </ul>
+                    <input type="number" value ="1" size = 4>
                 </li>
-                <li><a href="" class="add_cart"><img src="https://thatfruit.vn/wp-content/themes/wda-child/assets/img/cart-1.png" alt=""> Thêm vào giỏ</a></li>
+                <li><a class="add_cart" data-cartItem="${item.id}"><img src="https://thatfruit.vn/wp-content/themes/wda-child/assets/img/cart-1.png" alt=""> Thêm vào giỏ</a></li>
                 <li><a href="" class="add_wish"><i class="fa fa-heart-o" aria-hidden="true"></i></a> </li>
             </ul>
             <p id="direct_link">Danh mục: <b>${item.title}, Trái cây tươi</b></p>`
@@ -102,4 +107,16 @@ function slideAnh(item){
         $('.slider-for img').attr('src',link);
     });
 }
+
+function plusOrMinusFruitPage(){
+    let oldQuan = parseInt($(".main_cop").html());
+    $(".minus_cop").click(function (e) { 
+        oldQuan == 0 ? 0 : $(".main_cop").html(oldQuan - 1);
+    });
+    $(".plus_cop").click(function(e){
+        $(".main_cop").html(oldQuan + 1);
+    })
+}
+
+
 
