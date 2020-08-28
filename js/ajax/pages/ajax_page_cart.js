@@ -44,12 +44,12 @@ function getCartItem(item){
                 <td class="product_quantity product_center">
                     <div class="quantity">
                         <input type="button" value="-" class="minus_qtt" size="1" data-proId="${item.id}">
-                        <input type="number" value="${item.quantity}" size="4" class="text-center number_qtt" data-proId="${item.id}" data-proName = "${item.name}">
+                        <input type="number" value="${item.quantity}" size="4" class="text-center number_qtt" data-proId="${item.id}" >
                         <input type="button" value="+" class="plus_qtt" size="1" data-proId="${item.id}">
                     </div>
                 </td>
                 <td class="product_subtotal product_money product_center">${numberWithCommas(item.quantity*item.priece)} VNĐ</td>
-                <td class="product_remove product_center" data-proId="${item.id}"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                <td class="product_remove product_center" data-proId="${item.id}" data-proName = "${item.name}"><i class="fa fa-trash" aria-hidden="true"></i></td>
             </tr>`
 }
 
