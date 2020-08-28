@@ -13,7 +13,7 @@ function loadAllCartItem_area(){
     getProductFromCart_area().then(function(rs){
         showCartItems_area(rs);
     }).then(function(){
-        removeIntemFromCart();
+        removeIntemFromCart_area();
     })
 }
 
@@ -39,7 +39,7 @@ function getCartItem_area(item){
                     <p>${item.name} - <span>${item.weight}</span></p>
                     <span class = "count+price"><b>${item.quantity}</b> x ${numberWithCommas(item.priece)} VNĐ</span>
                 </div>
-                <i class="fa fa-trash product_remove_area" aria-hidden="true" data-proId="${item.id}"></i>
+                <i class="fa fa-trash product_remove_area" aria-hidden="true" data-proId="${item.id}" data-proName="${item.name}"></i>
             </div>`
 }
 
@@ -99,16 +99,18 @@ function addCartWhenClick_area(){
     });
 }
 
+// xóa bỏ sản phẩm có id ?
+function deleteCartItem_area(id){
+    return ajaxDelete(`cart/${id}`);
+}
+
 // xử lý nút xóa sản phẩm khỏi giỏ hàng
-function removeIntemFromCart(){
-    $(".product_remove").click(function (e) { 
-        let id = $(this).attr("data-proId");
-        deleteCartItem(id);
-        viewSuccess("Bạn vừa xóa một sản phẩm khỏi giỏ hàng")
-    });
+function removeIntemFromCart_area(){
     $(".product_remove_area").click(function (e) { 
-        let id = $(this).attr("data-proId");
-        deleteCartItem(id);
-        viewSuccess("Bạn vừa xóa một sản phẩm khỏi giỏ hàng")
+        let id = $(this).attr("data-proId"),
+            name = $(this).attr("data-proName");
+        deleteCartItem_area(id);
+        viewSuccess("Bạn vừa xóa sản phẩm " + name + " khỏi giỏ hàng");
     });
+    loadAllCartItem_area();
 }

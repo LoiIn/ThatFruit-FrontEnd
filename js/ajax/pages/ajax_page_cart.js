@@ -38,13 +38,13 @@ function getCartItem(item){
                     <img src="imgs/fruits/${item.title.toLowerCase()}/${item.name}/1.jpg" alt="">
                 </td>
                 <td class="product_name" width = "35%">
-                    <a href="">${item.name} - ${item.weight} gr</a>
+                    <a href="">${item.name} - ${item.weight}</a>
                 </td>
                 <td class="product_priece product_center">${numberWithCommas(item.priece)} VNĐ</td>
                 <td class="product_quantity product_center">
                     <div class="quantity">
                         <input type="button" value="-" class="minus_qtt" size="1" data-proId="${item.id}">
-                        <input type="number" value="${item.quantity}" size="4" class="text-center number_qtt" data-proId="${item.id}">
+                        <input type="number" value="${item.quantity}" size="4" class="text-center number_qtt" data-proId="${item.id}" data-proName = "${item.name}">
                         <input type="button" value="+" class="plus_qtt" size="1" data-proId="${item.id}">
                     </div>
                 </td>
@@ -60,9 +60,9 @@ function plusQuantityItem(){
             newQuantity = parseInt($(this).prev(".number_qtt").val()) + 1,
             data = {"quantity" : newQuantity};
         updateInforCartItem(id, data);
-        $(this).prev(".number_qtt").val(newQuantity);
-    
+        // $(this).prev(".number_qtt").val(newQuantity);
     });
+    loadAllCartItem();
 }
 
 function minusQuantityItem(){
@@ -71,9 +71,10 @@ function minusQuantityItem(){
         let id = $(this).attr("data-proId"),
             newQuantity = quan == 0 ? 0 : quan - 1,
             data = {"quantity" : newQuantity};
-        $(this).next(".number_qtt").val(newQuantity);
+        // $(this).next(".number_qtt").val(newQuantity);
         newQuantity == 0 ? deleteCartItem(id) : updateInforCartItem(id, data);
     });
+    loadAllCartItem();
 }
 
 function userAddQuantityItem(){
@@ -82,8 +83,9 @@ function userAddQuantityItem(){
             newQuantity = $(this).val(),
             data = {"quantity" : newQuantity};
         updateInforCartItem(id, data);
-        $(this).val(newQuantity);
+        // $(this).val(newQuantity);
     });
+    loadAllCartItem();
 }
 
 function showListSameProduct(){
@@ -92,6 +94,16 @@ function showListSameProduct(){
         addCartWhenClick_area();
     })
 }
+function removeIntemFromCart(){
+    $(".product_remove").click(function (e) { 
+        let id = $(this).attr("data-proId"),
+            name = $(this).attr("data-proName");
+        deleteCartItem(id);
+        viewSuccess("Bạn vừa xóa sản phẩm " + name + " khỏi giỏ hàng")
+    });
+    loadAllCartItem();
+}
+
 
 
 
