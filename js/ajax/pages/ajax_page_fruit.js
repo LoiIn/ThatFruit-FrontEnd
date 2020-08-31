@@ -1,18 +1,9 @@
-var state = {
-    name : "",
-    priece : 0,
-    country : "",
-    weight : 1,
-    img : []
-}
-
 PAGE_ID = 2;
 
 var link = "imgs/fruits"
 
 $(function(){
     showAllInfor();
-    
 })
 
 function showAllInfor(){
@@ -26,15 +17,19 @@ function showAllInfor(){
         // hiển thị phần ảnh
         $("#slide_area").html(setImgHtml(rs[0]));
         slideAnh(rs[0]);
+        
+        //thêm sản phẩm vào giỏ đồ tạm
         addCartWhenClick_area();
-        plusOrMinusFruitPage();
+        
+        // thay đổi trọng lượng của sản phẩm và số tiền tương ứng
+        changeProductWeight();
     }).catch(err=>console.log(err));
     
 }
 
 function setHtml(item){
     return `<b class="name_f">${item.name}</b>
-            <p class="priece">${item.priece}Đ</p>
+            <p class="priece">${numberWithCommas(item.priece)}Đ</p>
             <ul class="rating">
                 <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                 <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
@@ -51,16 +46,16 @@ function setHtml(item){
                 facilis, ducimus fuga voluptates maxime dolor reprehenderit odio? 
                 Cupiditate, qui!
             </p>
-            <ul class="weight">
+            <ul class="weight" data-corresping-priece = "${item.priece}">
                 <li style="margin-left:0; color: black; font-weight: 800;">TRỌNG LƯỢNG</li>
-                <li><a name="" class="kg_ btn btn-primary prWeight" href="#" role="button">1kg</a></li>
-                <li><a name="" class="g_ btn btn-primary prWeight active" href="#" role="button">500g</a></li>
+                <li class="kg_"><a name="" class="btn btn-primary prWeight" href="#" role="button">1kg</a></li>
+                <li class="g_"><a name="" class="btn btn-primary prWeight active" href="#" role="button">500g</a></li>
             </ul>
             <ul class="add_ ">
                 <li id="count_of_pr">
                     <input type="number" value ="1" size = 4>
                 </li>
-                <li><a class="add_cart" data-cartItem="${item.id}"><img src="https://thatfruit.vn/wp-content/themes/wda-child/assets/img/cart-1.png" alt=""> Thêm vào giỏ</a></li>
+                <li><a class="add_cart" data-cartItem="${item.id}" data-cartPriece = "${item.priece}"><img src="https://thatfruit.vn/wp-content/themes/wda-child/assets/img/cart-1.png" alt=""> Thêm vào giỏ</a></li>
                 <li><a href="" class="add_wish"><i class="fa fa-heart-o" aria-hidden="true"></i></a> </li>
             </ul>
             <p id="direct_link">Danh mục: <b>${item.title}, Trái cây tươi</b></p>`
@@ -76,8 +71,12 @@ function setImgHtml(item){
                 </div>
                 <div class="col-xs-12 col-md-3 col-sm-3" id = "right_slide">
                     <div class="slider-nav">
+                        <div class="one_slider" data-img="1">
+                            <div class="white_cover" data-white = "1"></div>
+                            <img src="${stringImg}/1.jpg" alt="">
+                        </div>
                         <div class="one_slider" data-img="2">
-                            <div class="white_cover" data-white = "2"></div>
+                            <div class="white_cover" data-white="2"></div>
                             <img src="${stringImg}/2.jpg" alt="">
                         </div>
                         <div class="one_slider" data-img="3">
@@ -87,10 +86,6 @@ function setImgHtml(item){
                         <div class="one_slider" data-img="4">
                             <div class="white_cover" data-white="4"></div>
                             <img src="${stringImg}/4.jpg" alt="">
-                        </div>
-                        <div class="one_slider" data-img="5">
-                            <div class="white_cover" data-white="5"></div>
-                            <img src="${stringImg}/5.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -108,15 +103,6 @@ function slideAnh(item){
     });
 }
 
-function plusOrMinusFruitPage(){
-    let oldQuan = parseInt($(".main_cop").html());
-    $(".minus_cop").click(function (e) { 
-        oldQuan == 0 ? 0 : $(".main_cop").html(oldQuan - 1);
-    });
-    $(".plus_cop").click(function(e){
-        $(".main_cop").html(oldQuan + 1);
-    })
-}
 
 
 

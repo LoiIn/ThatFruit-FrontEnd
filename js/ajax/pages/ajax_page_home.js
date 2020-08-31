@@ -24,6 +24,7 @@ function showList(rs,obj) {
         htmlFruits += showOneItemType1(item);
     });
     $(obj).html(htmlFruits);
+    changeProductWeight();
 }
 
 

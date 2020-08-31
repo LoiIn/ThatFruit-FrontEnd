@@ -135,6 +135,32 @@ function clickOneFruits(){
     });
 }
 
+// thay đổi khối lượng sản phẩm
+function changeProductWeight(){
+    $(".weight li").click(function (e) { 
+        e.preventDefault();
+        let classAttr = $(this).attr("class");
+        let curMoney =  $(this).parent().attr("data-corresping-priece");
+        let newMoney;
+        if(classAttr == "kg_"){
+            $(this).next(".g_").children().removeClass("active");
+            newMoney = curMoney * 2;
+        }else{
+            $(this).prev(".kg_").children().removeClass("active");
+            newMoney = curMoney / 2;
+        }
+        $(".weight li a").removeClass("carting");
+        $(this).children().addClass("carting active");
+        $(this).parent().attr("data-corresping-priece",newMoney);
+        
+        if(PAGE_ID == 2){
+            $(this).parent().parent().find(".priece").html(numberWithCommas(newMoney) + " VNĐ");
+        }else{
+            $(this).parent().prev().find(".priece").html(numberWithCommas(newMoney) + " VNĐ");
+        }        
+    });
+}
+
 function showType1(rs){
     let listFruits = ``;
     rs.map((item) => {
@@ -149,6 +175,7 @@ function showType2(rs){
         listFruits += showOneItemType2(item);
     });
     $(".row_fruit_2").html(listFruits);
+    // changeProductWeight();
 }
 
 
@@ -169,12 +196,12 @@ function showOneItemType1(item){
                         </ul>
                         <b class="name_f">${item.name}</b>
                         <p class="priece">${numberWithCommas(item.priece)} VNĐ</p>
-                        <ul class="weight">
-                            <li><a name="" class="kg_ btn btn-primary prWeight" href="#" role="button">1kg</a></li>
-                            <li><a name="" class="g_ btn btn-primary prWeight active" href="#" role="button">500g</a></li>
+                        <ul class="weight" data-corresping-priece = "${item.priece}">
+                            <li class= "kg_"><a name="" class="btn btn-primary prWeight" href="#" role="button">1kg</a></li>
+                            <li class = "g_"><a name="" class="btn btn-primary prWeight active" href="#" role="button">500g</a></li>
                         </ul>
                         <ul class="add_ hidden_media">
-                            <li><a class="add_cart" data-cartItem ="${item.id}"><img src="https://thatfruit.vn/wp-content/themes/wda-child/assets/img/cart-1.png" alt=""> Thêm vào giỏ</a></li>
+                            <li><a class="add_cart" data-cartItem ="${item.id}" data-cartPriece = "${item.priece}"><img src="https://thatfruit.vn/wp-content/themes/wda-child/assets/img/cart-1.png" alt=""> Thêm vào giỏ</a></li>
                             <li><a href="" class="add_wish"><i class="fa fa-heart-o" aria-hidden="true"></i></a> </li>
                         </ul>
                         <a  class="show_media add_show"> Thêm vào giỏ</a>                               

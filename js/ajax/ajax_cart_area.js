@@ -1,7 +1,10 @@
 // file ajax cho vùng cart ở mỗi trang web
 $(function(){
     loadAllCartItem_area();
+    
 })
+
+
 
 // 1. In thông tin sản phẩm ra
 // lấy tất cả các sản phẩm trong giỏ hàng và in ra màn hình
@@ -18,6 +21,7 @@ function loadAllCartItem_area(){
 }
 
 function showCartItems_area(rs){
+    showNotifaceCart(rs);
     let htmlTextCart_area = ``;
     let prePrice_area = 0;
     rs.map((item) => {
@@ -26,7 +30,7 @@ function showCartItems_area(rs){
     });
     $("#list_carts").html(htmlTextCart_area);
     $("#prepare_total").html(
-        `<span>Tạm tính: <strong>${numberWithCommas(prePrice_area)} VND</strong></span>`
+        `<span>Tạm tính: <strong>${prePrice_area} VND</strong></span>`
     )
 }
 
@@ -37,7 +41,7 @@ function getCartItem_area(item){
                 </div>
                 <div class="name_box">
                     <p>${item.name} - <span>${item.weight}</span></p>
-                    <span class = "count+price"><b>${item.quantity}</b> x ${numberWithCommas(item.priece)} VNĐ</span>
+                    <span class = "count+price"><b>${item.quantity}</b> x ${item.priece} VNĐ</span>
                 </div>
                 <i class="fa fa-trash product_remove_area" aria-hidden="true" data-proId="${item.id}" data-proName="${item.name}"></i>
             </div>`
@@ -67,11 +71,13 @@ function addCartWhenClick_area(){
     $(".add_cart").click(function (e) { 
         e.preventDefault();
         let fID = $(this).attr("data-cartItem");
+            fPriece = $(this).attr("data-cartPriece"),
+            fWeight = $(".carting").length == 0 ? "500g" : $(".prWeight.carting").html();
         getInforCartItem_area(fID).then(function(rs){
             let data;
-            if(rs.length != 0){
-                data = {"quantity" : rs[0].quantity + 1};
-                updateQuantity_area(rs[0].id, data);
+            if(rs.length != 0 && checkWeightWithCartList(rs,fWeight) != -1){
+                data = {"quantity" : PAGE_ID == 2 ? (parseInt($("#count_of_pr input").val()) + rs[0].quantity) : (parseInt(1) + rs[0].quantity)};
+                updateQuantity_area(rs[checkWeightWithCartList(rs,fWeight)].id, data);
                 viewSuccess("Bạn vừa tăng số lượng " + rs[0].name + " vào trong giỏ hàng");
             }else{
                 ajaxGet(`fruits?id=${fID}`).then(function(rsf){
@@ -80,14 +86,14 @@ function addCartWhenClick_area(){
                     });
                     data =  {
                         "name" : rsf[0].name,
-                        "quantity" : PAGE_ID == 2 ? $("#count_of_pr input").val() : parseInt(1),
-                        "priece" : rsf[0].priece,
-                        "weight" : $(".prWeight.active").html(),
+                        "quantity" : PAGE_ID == 2 ? parseInt($("#count_of_pr input").val()) : parseInt(1),
+                        "priece" : $(".carting").length == 0 ? fPriece : parseInt($(".prWeight.carting").parent().parent().attr("data-corresping-priece")),
+                        "weight" : $(".carting").length == 0 ? "500g" : $(".prWeight.carting").html(),
                         "title"  : rsf[0].title,
                         "fruitID" : parseInt(fID)
                     };
                     uploadCartItem_area(data);
-                    viewSuccess("Bạn vừa thêm " + rsf[0].name + " vào giỏ hàng thành công");
+                    viewSuccess("Bạn vừa thêm " + rsf[0].name +" vào giỏ hàng thành công");
                 });
             }
             loadAllCartItem_area();
@@ -95,7 +101,6 @@ function addCartWhenClick_area(){
             $("#cart_area2").css("display", "block");
             TweenMax.to($("#cart_area2 #main_"), 1, {right:0,ease: "power4.out"});
         })
-        
     });
 }
 
@@ -113,4 +118,22 @@ function removeIntemFromCart_area(){
         viewSuccess("Bạn vừa xóa sản phẩm " + name + " khỏi giỏ hàng");
     });
     loadAllCartItem_area();
+}
+
+//3. Các xử lý khác
+// Xử lý thông báo khi có sản phẩm trong giỏ hàng
+function showNotifaceCart(rs){
+    if(rs.length == 0){
+        $(".show_count_on_cart").css("display","none");
+    }else{
+        $(".show_count_on_cart").css("display","block");
+    }
+}
+
+// check xem sản phẩm có tên trong giỏ hàng nhưng mà lại khác số kg
+function checkWeightWithCartList(rs,w){
+   for(i = 0; i < rs.length; i ++){
+       if(rs[i].weight == w) return i;
+   }
+   return -1;
 }

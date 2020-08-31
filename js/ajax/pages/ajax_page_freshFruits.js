@@ -50,6 +50,7 @@ function showLists(rs){
         showType1(rs);
         showType2(rs);
     }
+    changeProductWeight();
     clickOneFruits();
     addCartWhenClick_area();
 }
